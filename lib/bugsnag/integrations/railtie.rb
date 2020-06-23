@@ -63,7 +63,7 @@ module Bugsnag
 
     initializer "bugsnag.use_rack_middleware" do |app|
       begin
-        app.config.middleware.insert_before Rails::Rack::Logger, Bugsnag::Rack
+        app.config.middleware.insert_before ::Rails::Rack::Logger, Bugsnag::Rack
       rescue
         app.config.middleware.use Bugsnag::Rack
       end
